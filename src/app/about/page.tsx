@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div>
-      <div className="relative h-[50vh] min-h-[360px] overflow-hidden bg-primary">
+      <div className="relative h-[50dvh] min-h-[360px] overflow-hidden bg-primary">
         <Image
-          src="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Rich_Chocolate_Truffle_Cake_by_Ramesh_Bakery_in_Bhopal_Madhya_Pradesh.jpg/1920px-Rich_Chocolate_Truffle_Cake_by_Ramesh_Bakery_in_Bhopal_Madhya_Pradesh.jpg"
-          alt="A dark chocolate cake finished in glossy ganache"
+          src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/8-Layer_Chocolate_Hazelnut_Cake.jpg/1920px-8-Layer_Chocolate_Hazelnut_Cake.jpg"
+          alt="A block of dark chocolate ganache cake, glossy finish, on a white plate"
           fill
           priority
           sizes="100vw"
@@ -21,9 +21,7 @@ export default function AboutPage() {
         />
         <div className="absolute inset-0 flex items-end bg-gradient-to-t from-primary via-primary/20 to-transparent">
           <div className="mx-auto w-full max-w-3xl px-4 pb-16 sm:px-6">
-            <p className="text-xs uppercase tracking-[0.3em] text-primary-foreground/70">
-              Our Story
-            </p>
+            <p className="eyebrow text-primary-foreground/90">Our Story</p>
             <h1 className="mt-3 font-serif text-5xl text-primary-foreground sm:text-6xl">
               Built by hand, for one table.
             </h1>

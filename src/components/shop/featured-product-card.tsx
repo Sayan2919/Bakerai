@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { Badge } from "@/components/ui/badge";
 import { OCCASIONS } from "@/lib/data/occasions";
+import { TiltCard } from "@/components/motion/tilt-card";
 import type { Cake } from "@/types/cake";
 
 export function FeaturedProductCard({ cake }: { cake: Cake }) {
@@ -13,7 +14,7 @@ export function FeaturedProductCard({ cake }: { cake: Cake }) {
       href={`/shop/${cake.slug}`}
       className="group grid grid-cols-1 items-center gap-8 sm:grid-cols-2 lg:gap-16"
     >
-      <div className="relative aspect-[4/5] overflow-hidden bg-muted sm:aspect-[3/4]">
+      <TiltCard className="relative aspect-[4/5] overflow-hidden bg-muted sm:aspect-[3/4]">
         <Image
           src={cake.images[0].src}
           alt={cake.images[0].alt}
@@ -26,9 +27,9 @@ export function FeaturedProductCard({ cake }: { cake: Cake }) {
             {primaryOccasion.label}
           </Badge>
         )}
-      </div>
+      </TiltCard>
       <div>
-        <p className="text-xs uppercase tracking-[0.3em] text-accent">Featured</p>
+        <p className="eyebrow text-accent">Featured</p>
         <h3 className="mt-3 font-serif text-4xl text-foreground sm:text-5xl">
           {cake.name}
         </h3>

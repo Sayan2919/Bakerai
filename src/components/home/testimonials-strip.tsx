@@ -4,9 +4,7 @@ import { TESTIMONIALS } from "@/lib/data/testimonials";
 export function TestimonialsStrip() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-      <p className="text-center text-xs uppercase tracking-[0.3em] text-accent">
-        From Our Customers
-      </p>
+      <p className="eyebrow text-center text-accent">From Our Customers</p>
 
       <ScrollReveal className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
         {TESTIMONIALS.map((t) => (

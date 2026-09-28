@@ -10,7 +10,7 @@ export function AccountLink() {
   return (
     <Link
       href={isHydrated && isAuthenticated ? "/account" : "/login"}
-      className="inline-flex items-center gap-2 rounded-full p-2 transition-colors hover:bg-muted"
+      className="inline-flex items-center gap-2 rounded-full p-3 transition-colors hover:bg-muted sm:p-2"
       aria-label={isHydrated && isAuthenticated ? `Account, ${user?.name}` : "Log in"}
     >
       <UserCircleIcon size={20} weight="regular" />

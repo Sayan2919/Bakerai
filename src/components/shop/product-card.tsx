@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { Badge } from "@/components/ui/badge";
 import { OCCASIONS } from "@/lib/data/occasions";
+import { TiltCard } from "@/components/motion/tilt-card";
 import type { Cake } from "@/types/cake";
 
 export function ProductCard({ cake }: { cake: Cake }) {
@@ -10,7 +11,7 @@ export function ProductCard({ cake }: { cake: Cake }) {
 
   return (
     <Link href={`/shop/${cake.slug}`} className="group block">
-      <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+      <TiltCard className="relative aspect-[4/5] overflow-hidden bg-muted">
         <Image
           src={cake.images[0].src}
           alt={cake.images[0].alt}
@@ -29,7 +30,7 @@ export function ProductCard({ cake }: { cake: Cake }) {
             <ArrowUpRightIcon size={14} />
           </span>
         </div>
-      </div>
+      </TiltCard>
       <div className="mt-5">
         <h3 className="font-serif text-2xl text-foreground">{cake.name}</h3>
         <p className="mt-1 text-sm text-muted-foreground">{cake.tagline}</p>

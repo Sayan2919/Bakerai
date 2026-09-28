@@ -17,9 +17,7 @@ export function StoryTeaser() {
           />
         </div>
         <div className="px-6 py-16 sm:px-12 md:px-16">
-          <p className="text-xs uppercase tracking-[0.3em] text-secondary-foreground/60">
-            Our Story
-          </p>
+          <p className="eyebrow text-secondary-foreground/80">Our Story</p>
           <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
             Every cake, built by hand, for one table.
           </h2>
@@ -32,6 +30,7 @@ export function StoryTeaser() {
           <Button
             asChild
             variant="outline"
+            size="lg"
             className="mt-8 rounded-none border-secondary-foreground/30 bg-transparent text-secondary-foreground hover:bg-secondary-foreground/10 hover:text-secondary-foreground"
           >
             <Link href="/about">Read our story</Link>

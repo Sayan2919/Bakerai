@@ -25,7 +25,7 @@ export function MobileNav() {
       <SheetTrigger asChild>
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-full p-2 transition-colors hover:bg-muted md:hidden"
+          className="inline-flex items-center justify-center rounded-full p-3 transition-colors hover:bg-muted md:hidden"
           aria-label="Open menu"
         >
           <ListIcon size={22} weight="regular" />

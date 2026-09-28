@@ -14,11 +14,9 @@ export function AuthCard({
   footer: ReactNode;
 }) {
   return (
-    <div className="mx-auto flex min-h-[70vh] max-w-md flex-col justify-center px-4 py-16 sm:px-6">
+    <div className="mx-auto flex min-h-[70dvh] max-w-md flex-col justify-center px-4 py-16 sm:px-6">
       <div className="animate-in fade-in slide-in-from-bottom-2 duration-500">
-        <p className="text-center text-xs uppercase tracking-[0.3em] text-accent">
-          {eyebrow}
-        </p>
+        <p className="eyebrow text-center text-accent">{eyebrow}</p>
         <h1 className="mt-3 text-center font-serif text-4xl text-foreground">
           {title}
         </h1>

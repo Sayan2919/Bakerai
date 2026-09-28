@@ -22,12 +22,12 @@ export const CAKES: Cake[] = [
     sizes: SIZES,
     images: [
       {
-        src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Rich_Chocolate_Truffle_Cake_by_Ramesh_Bakery_in_Bhopal_Madhya_Pradesh.jpg/1920px-Rich_Chocolate_Truffle_Cake_by_Ramesh_Bakery_in_Bhopal_Madhya_Pradesh.jpg",
-        alt: "Dark chocolate truffle cake with glossy ganache finish",
+        src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/8-Layer_Chocolate_Hazelnut_Cake.jpg/1920px-8-Layer_Chocolate_Hazelnut_Cake.jpg",
+        alt: "A block of dark chocolate ganache cake, glossy finish, on a white plate",
       },
       {
-        src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/8-Layer_Chocolate_Hazelnut_Cake.jpg/1920px-8-Layer_Chocolate_Hazelnut_Cake.jpg",
-        alt: "Cross-section of layered chocolate hazelnut cake",
+        src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Rich_Chocolate_Truffle_Cake_by_Ramesh_Bakery_in_Bhopal_Madhya_Pradesh.jpg/1920px-Rich_Chocolate_Truffle_Cake_by_Ramesh_Bakery_in_Bhopal_Madhya_Pradesh.jpg",
+        alt: "Dark chocolate truffle cake with glossy ganache finish",
       },
     ],
     featured: true,

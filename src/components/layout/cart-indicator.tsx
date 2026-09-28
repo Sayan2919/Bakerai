@@ -11,7 +11,7 @@ export function CartIndicator() {
   return (
     <Link
       href="/cart"
-      className="relative inline-flex items-center justify-center rounded-full p-2 transition-colors hover:bg-muted"
+      className="relative inline-flex items-center justify-center rounded-full p-3 transition-colors hover:bg-muted sm:p-2"
       aria-label={`Cart, ${count} item${count === 1 ? "" : "s"}`}
     >
       <ShoppingBagIcon size={20} weight="regular" />

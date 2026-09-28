@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { CheckCircleIcon } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -17,7 +18,11 @@ export function CustomizationPanel({ cake }: { cake: Cake }) {
   const [flavor, setFlavor] = useState(cake.flavors[0]);
   const [message, setMessage] = useState("");
   const [justAdded, setJustAdded] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const addLine = useCartStore((s) => s.addLine);
+
+  // Portal target must be resolved client-side only (no DOM during SSR).
+  useEffect(() => setMounted(true), []);
 
   const size = cake.sizes.find((s) => s.id === sizeId) ?? cake.sizes[0];
   const price = useMemo(() => cake.basePrice + size.priceModifier, [cake.basePrice, size]);
@@ -113,25 +118,54 @@ export function CustomizationPanel({ cake }: { cake: Cake }) {
         </p>
       </div>
 
-      <div className="space-y-3">
-        <Button
-          type="button"
-          size="lg"
-          onClick={handleAddToCart}
-          className="w-full rounded-none bg-accent text-accent-foreground hover:bg-accent/90"
-        >
-          Add to cart — ${price}
-        </Button>
-        {justAdded && (
-          <p
-            role="status"
-            className="flex items-center gap-2 text-sm text-secondary"
-          >
-            <CheckCircleIcon size={16} weight="fill" className="text-accent" />
-            Added to your cart.
-          </p>
-        )}
+      {/* Desktop/tablet: inline in the flow */}
+      <div className="hidden sm:block">
+        <AddToCartButton price={price} justAdded={justAdded} onClick={handleAddToCart} />
       </div>
+
+      {/* Mobile: pinned to the bottom of the viewport so it's always reachable,
+          even on a long customization panel — matches native app checkout patterns.
+          Portaled to <body> because an ancestor gets a GSAP-applied `transform`
+          (from the ScrollReveal entrance animation), which would otherwise make
+          that ancestor the containing block for `position: fixed` and break the
+          pin — a well-known CSS gotcha when mixing transforms with fixed children. */}
+      {mounted &&
+        createPortal(
+          <div className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-background/95 p-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] backdrop-blur sm:hidden">
+            <AddToCartButton price={price} justAdded={justAdded} onClick={handleAddToCart} />
+          </div>,
+          document.body
+        )}
+      {/* Spacer so the fixed mobile bar never overlaps the last field */}
+      <div className="h-20 sm:hidden" aria-hidden="true" />
     </div>
+  );
+}
+
+function AddToCartButton({
+  price,
+  justAdded,
+  onClick,
+}: {
+  price: number;
+  justAdded: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <Button
+      type="button"
+      size="lg"
+      onClick={onClick}
+      className="w-full rounded-none bg-accent text-accent-foreground hover:bg-accent/90"
+    >
+      {justAdded ? (
+        <span className="flex items-center gap-2">
+          <CheckCircleIcon size={16} weight="fill" />
+          Added to cart
+        </span>
+      ) : (
+        `Add to cart — $${price}`
+      )}
+    </Button>
   );
 }

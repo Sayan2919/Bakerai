@@ -14,9 +14,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground/50">
-              Shop
-            </h3>
+            <h3 className="eyebrow text-primary-foreground/70">Shop</h3>
             <ul className="mt-4 space-y-2 text-sm text-primary-foreground/80">
               <li>
                 <Link href="/shop" className="hover:text-primary-foreground">
@@ -43,9 +41,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground/50">
-              Studio
-            </h3>
+            <h3 className="eyebrow text-primary-foreground/70">Studio</h3>
             <ul className="mt-4 space-y-2 text-sm text-primary-foreground/80">
               <li>
                 <Link href="/about" className="hover:text-primary-foreground">

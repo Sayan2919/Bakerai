@@ -11,7 +11,7 @@ export default function AccountPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="mx-auto flex min-h-[60vh] max-w-md flex-col items-center justify-center px-4 text-center">
+      <div className="mx-auto flex min-h-[60dvh] max-w-md flex-col items-center justify-center px-4 text-center">
         <h1 className="font-serif text-3xl text-foreground">
           You&apos;re not signed in
         </h1>
@@ -27,7 +27,7 @@ export default function AccountPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
-      <p className="text-xs uppercase tracking-[0.3em] text-accent">Account</p>
+      <p className="eyebrow text-accent">Account</p>
       <h1 className="mt-3 font-serif text-4xl text-foreground">
         Welcome, {user?.name}
       </h1>

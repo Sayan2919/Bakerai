@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
 import { SplitTextHeading } from "@/components/motion/split-text-heading";
 import { Button } from "@/components/ui/button";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -30,9 +31,10 @@ export function HeroSection() {
               trigger: sectionRef.current,
               start: "top top",
               end: "+=100%",
-              scrub: 1,
+              scrub: 0.3,
               pin: true,
               pinSpacing: true,
+              anticipatePin: 1,
             },
           });
         }
@@ -46,7 +48,7 @@ export function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex h-[90vh] min-h-[560px] items-end overflow-hidden bg-primary"
+      className="relative flex h-[90dvh] min-h-[560px] items-end overflow-hidden bg-primary"
     >
       <div ref={bgRef} className="absolute inset-0 -top-16 scale-110">
         <Image
@@ -61,27 +63,27 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <p className="text-xs uppercase tracking-[0.3em] text-primary-foreground/70">
-          Atelier de Gâteaux
-        </p>
+        <p className="eyebrow text-primary-foreground/90">Atelier de Gâteaux</p>
         <SplitTextHeading
           as="h1"
           className="mt-4 max-w-2xl text-5xl font-medium leading-[1.05] text-primary-foreground sm:text-6xl lg:text-7xl"
         >
           Handcrafted, made to order.
         </SplitTextHeading>
-        <p className="mt-6 max-w-md text-base text-primary-foreground/80">
+        <p className="mt-6 max-w-md text-base text-primary-foreground/90">
           Custom cakes built around your flavors, your size, your occasion —
           baked to order, never from a freezer case.
         </p>
-        <div className="mt-8 flex flex-wrap gap-4">
-          <Button
-            asChild
-            size="lg"
-            className="rounded-none bg-accent px-8 text-accent-foreground hover:bg-accent/90"
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          <HoverBorderGradient
+            as={Link}
+            href="/shop"
+            duration={1.5}
+            containerClassName="bg-accent/30"
+            className="bg-accent text-accent-foreground px-8 py-3 text-sm font-medium"
           >
-            <Link href="/shop">Browse the collection</Link>
-          </Button>
+            Browse the collection
+          </HoverBorderGradient>
           <Button
             asChild
             variant="outline"
